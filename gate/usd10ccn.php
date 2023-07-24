@@ -30,10 +30,10 @@ function multiexplode($seperator, $string){
 $idd = $_GET['idd'];
 $amt = $_GET['cst'];
 if(empty($amt)) {
-	$amt = '10';
+	$amt = '3';
 	$chr = $amt * 100;
 }
-$sk = 'sk_live_ggXViiCYsKxfzwLWPuyxUyQ2';
+$sk = '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';
 
 $lista = $_GET['lista'];
     $cc = multiexplode(array(":", "|", ""), $lista)[0];
